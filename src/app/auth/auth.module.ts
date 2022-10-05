@@ -5,11 +5,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { LocalStorageService } from './services/local-storage.service';
+import { LoginComponent } from './login/login.component';
 
 
 
 @NgModule({
-  declarations: [RegistroComponent],
+  declarations: [RegistroComponent, LoginComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './auth/login/login.component';
 import { RegistroComponent } from './auth/registro/registro.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'conta/registrar', pathMatch: 'full' },
+  { path: '', redirectTo: 'conta/autenticar', pathMatch: 'full' },
   { path: 'conta/registrar', component: RegistroComponent },
+  { path: 'conta/autenticar', component: LoginComponent },
   {
     path: 'dashboard',
     loadChildren: () =>

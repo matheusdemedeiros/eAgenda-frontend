@@ -20,4 +20,18 @@ export class LocalStorageService {
 
     localStorage.setItem('eAgenda.usuario', jsonString);
   }
+
+  public obterUsuarioLogado() {
+    const usuarioJson = localStorage.getItem('eAgenda.usuario');
+
+    if (usuarioJson) return JSON.parse(usuarioJson) as UsuarioTokenViewModel;
+
+    return null;
+  }
+
+  public obterTokenUsuario():string{
+    return localStorage.getItem('eAgenda.token') ?? '';
+  }
+
+
 }

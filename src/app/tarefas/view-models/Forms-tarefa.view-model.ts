@@ -7,16 +7,3 @@ export class FormsTarefaViewModel {
   prioridade: PrioridadeTarefaEnum;
   itens: ItemTarefaViewModel[] = [];
 }
-
-export class InserirTarefaViewModel{
-  titulo: string;
-  prioridade: PrioridadeTarefaEnum;
-  itens: ItemTarefaViewModel[] = [];
-}
-
-export class EditarTarefaViewModel{
-  id: string;
-  titulo: string;
-  prioridade: PrioridadeTarefaEnum;
-  itens: ItemTarefaViewModel[] = [];
-}

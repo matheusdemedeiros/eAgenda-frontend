@@ -11,7 +11,7 @@ import { LocalStorageService } from 'src/app/auth/services/local-storage.service
 import { NotificadorService } from 'src/shared/notificador.service';
 import { TarefaService } from '../services/tarefa.service';
 import { ItemTarefaViewModel } from '../view-models/forms-item-tarefa.view-model';
-import { FormsTarefaViewModel, InserirTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
+import { FormsTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
 import { PrioridadeTarefaEnum } from '../view-models/prioridade-tarefa.enum';
 import { StatusItemTarefa } from '../view-models/status-item-tarefa.enum';
 

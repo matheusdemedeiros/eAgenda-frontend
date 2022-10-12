@@ -68,7 +68,7 @@
           <tbody class="text-center">
             <tr *ngFor="let item of tarefaFormVM.itens; let i = index">
               <td>{{ item.titulo }}</td>
-              <td>{{ item.concluido ? "Concluído" : "Pendente" }}</td>
+              <td>{{ item.situacao }}</td>
             </tr>
           </tbody>
         </table>

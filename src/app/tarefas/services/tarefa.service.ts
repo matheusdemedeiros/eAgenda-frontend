@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError, map, Observable, throttleTime, throwError } from 'rxjs';
 import { LocalStorageService } from 'src/app/auth/services/local-storage.service';
 import { environment } from 'src/environments/environment';
-import { FormsTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
+import { EditarTarefaViewModel, FormsTarefaViewModel, InserirTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
 import { ListarTarefaViewModel } from '../view-models/listar-tarefa.view-model';
 import { VisualizarTarefaViewModel } from '../view-models/visualizar-tarefa.view-model';
 @Injectable()

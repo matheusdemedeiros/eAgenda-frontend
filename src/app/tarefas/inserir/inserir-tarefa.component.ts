@@ -8,9 +8,10 @@ import {
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/auth/services/local-storage.service';
+import { NotificadorService } from 'src/shared/notificador.service';
 import { TarefaService } from '../services/tarefa.service';
 import { ItemTarefaViewModel } from '../view-models/forms-item-tarefa.view-model';
-import { FormsTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
+import { FormsTarefaViewModel, InserirTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
 import { PrioridadeTarefaEnum } from '../view-models/prioridade-tarefa.enum';
 import { StatusItemTarefa } from '../view-models/status-item-tarefa.enum';
 
@@ -32,6 +33,7 @@ export class InserirTarefaComponent implements OnInit {
     titulo: Title,
     private fb: FormBuilder,
     private tarefaService: TarefaService,
+    private notificador: NotificadorService,
     private router: Router
   ) {
     titulo.setTitle('Cadastrar tarefa - e-Agenda');
@@ -60,7 +62,7 @@ export class InserirTarefaComponent implements OnInit {
   }
 
   public adicionarItem(): void {
-    if (!this.tituloItem) return;
+    if (!this.tituloItem?.value) return;
 
     const titulo = this.tituloItem?.value;
 
@@ -119,10 +121,12 @@ export class InserirTarefaComponent implements OnInit {
 
   private processarSucesso(tarefa: FormsTarefaViewModel): void {
     this.router.navigate(['/tarefas/listar']);
+    this.notificador.mensagemSucesso("Tarefa cadastrada com sucesso!");
   }
 
   private processarFalha(erro: any) {
     if (erro) {
+      this.notificador.mensagemErro("Erro ao cadastrar tarefa!");
       console.error(erro);
     }
   }

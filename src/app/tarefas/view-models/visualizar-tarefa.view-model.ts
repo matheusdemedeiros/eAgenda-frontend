@@ -11,5 +11,5 @@ export class VisualizarTarefaViewModel {
 
 export class VisualizarItemTarefaViewModel {
   titulo: string;
-  concluido: boolean;
+  situacao: string;
 }

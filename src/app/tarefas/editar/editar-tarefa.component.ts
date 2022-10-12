@@ -8,9 +8,10 @@ import {
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/auth/services/local-storage.service';
+import { NotificadorService } from 'src/shared/notificador.service';
 import { TarefaService } from '../services/tarefa.service';
 import { ItemTarefaViewModel } from '../view-models/forms-item-tarefa.view-model';
-import { FormsTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
+import { EditarTarefaViewModel, FormsTarefaViewModel } from '../view-models/Forms-tarefa.view-model';
 import { PrioridadeTarefaEnum } from '../view-models/prioridade-tarefa.enum';
 import { StatusItemTarefa } from '../view-models/status-item-tarefa.enum';
 @Component({
@@ -31,6 +32,7 @@ export class EditarTarefaComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private notificador: NotificadorService,
     private tarefaService: TarefaService
   ) {
     titulo.setTitle('Editar Tarefa - e-Agenda');
@@ -73,7 +75,7 @@ export class EditarTarefaComponent implements OnInit {
   }
 
   public adicionarItem(): void {
-    if (!this.tituloItem) return;
+    if (!this.tituloItem?.value) return;
 
     const titulo = this.tituloItem?.value;
 
@@ -113,7 +115,7 @@ export class EditarTarefaComponent implements OnInit {
   public gravar() {
     if (this.formTarefa.invalid) return;
 
-    this.tarefaFormVM = Object.assign({}, this.tarefaFormVM, this.formTarefa.value);
+        this.tarefaFormVM = Object.assign({}, this.tarefaFormVM, this.formTarefa.value);
 
 
     this.tarefaService.editar(this.tarefaFormVM)
@@ -123,12 +125,14 @@ export class EditarTarefaComponent implements OnInit {
       });
   }
 
-  private processarSucesso(tarefa: FormsTarefaViewModel) {
+  private processarSucesso(tarefa: FormsTarefaViewModel): void {
     this.router.navigate(['/tarefas/listar']);
+    this.notificador.mensagemSucesso("Tarefa editada com sucesso!");
   }
 
   private processarFalha(erro: any) {
-    console.log(erro);
+    if (erro) {
+      this.notificador.mensagemErro("Erro ao editar tarefa!");
+    }
   }
-
 }

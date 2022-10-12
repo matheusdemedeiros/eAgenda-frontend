@@ -12,6 +12,7 @@ import { EditarTarefaComponent } from './editar/editar-tarefa.component';
 import { FormsTarefaResolver } from './services/forms-tarefa.resolver';
 import { ExcluirTarefaComponent } from './excluir/excluir-tarefa.component';
 import { VisualizarTarefaResolver } from './services/visualizar-tarefa.resolver';
+import { NotificadorService } from 'src/shared/notificador.service';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { VisualizarTarefaResolver } from './services/visualizar-tarefa.resolver'
     CommonModule,
     TarefaRoutingModule,
     ReactiveFormsModule,
-    NgSelectModule
+    NgSelectModule,
+
   ],
   providers:[TarefaService, FormsTarefaResolver, VisualizarTarefaResolver]
 })

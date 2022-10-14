@@ -9,20 +9,18 @@ import { ContatoService } from './services/contato.service';
 import { InserirContatoComponent } from './inserir/inserir-contato.component';
 import { EditarContatoComponent } from './editar/editar-contato.component';
 import { FormsContatoResolver } from './services/forms-contato.resolver';
-
+import { ExcluirContatoComponent } from './excluir/excluir-contato.component';
+import { VisualizarContatoResolver } from './services/visualizar-contato.resolver';
 
 @NgModule({
   declarations: [
     ContatoAppComponent,
     ListarContatoComponent,
     InserirContatoComponent,
-    EditarContatoComponent
+    EditarContatoComponent,
+    ExcluirContatoComponent,
   ],
-  imports: [
-    CommonModule,
-    ContatosRoutingModule,
-    ReactiveFormsModule
-  ],
-  providers:[ContatoService, FormsContatoResolver]
+  imports: [CommonModule, ContatosRoutingModule, ReactiveFormsModule],
+  providers: [ContatoService, FormsContatoResolver, VisualizarContatoResolver],
 })
-export class ContatoModule { }
+export class ContatoModule {}

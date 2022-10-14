@@ -14,7 +14,7 @@ import { NotificadorService } from 'src/shared/notificador.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

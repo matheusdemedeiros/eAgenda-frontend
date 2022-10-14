@@ -17,12 +17,12 @@ export class ContatoService{
   ) {}
 
   public inserir(
-    tarefa: FormsContatoViewModel
+    contato: FormsContatoViewModel
   ): Observable<FormsContatoViewModel> {
     const resposta = this.http
       .post<FormsContatoViewModel>(
         this.apiUrl + 'contatos',
-        tarefa,
+        contato,
         this.obterHeadersAutorizacao()
       )
       .pipe(map(this.processarDados), catchError(this.processarFalha));
@@ -31,12 +31,12 @@ export class ContatoService{
   }
 
   public editar(
-    tarefa: FormsContatoViewModel
+    contato: FormsContatoViewModel
   ): Observable<FormsContatoViewModel> {
     const resposta = this.http
       .put<FormsContatoViewModel>(
-        this.apiUrl + 'tarefas/' + tarefa.id,
-        tarefa,
+        this.apiUrl + 'contatos/' + contato.id,
+        contato,
         this.obterHeadersAutorizacao()
       )
       .pipe(map(this.processarDados), catchError(this.processarFalha));

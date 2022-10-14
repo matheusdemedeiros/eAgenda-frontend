@@ -35,6 +35,7 @@ export class EditarTarefaComponent implements OnInit {
 
   ngOnInit(): void {
     this.tarefaFormVM = this.route.snapshot.data['tarefa'];
+    console.log(this.tarefaFormVM);
 
     this.formTarefa = this.fb.group({
       titulo: ['', [Validators.required, Validators.minLength(3)]],

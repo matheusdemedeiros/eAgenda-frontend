@@ -12,10 +12,13 @@ import { CoreModule } from './core/core.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NotificadorService } from 'src/shared/notificador.service';
 
+import ptBr from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { LOCALE_ID } from '@angular/core';
+
+registerLocaleData(ptBr);
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -23,13 +26,12 @@ import { NotificadorService } from 'src/shared/notificador.service';
     HttpClientModule,
     NgbModule,
 
-
     CoreModule,
     AuthModule,
     NavbarModule,
     ToastrModule.forRoot(),
   ],
-  providers: [NotificadorService],
-  bootstrap: [AppComponent]
+  providers: [NotificadorService, { provide: LOCALE_ID, useValue: 'pt' }],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

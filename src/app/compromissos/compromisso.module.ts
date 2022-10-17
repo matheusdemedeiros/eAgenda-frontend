@@ -9,12 +9,17 @@ import { InserirCompromissoComponent } from './inserir/inserir-compromisso.compo
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ContatoModule } from '../contatos/contato.module';
+import { EditarCompromissoComponent } from './editar/editar-compromisso.component';
+import { FormsCompromissoResolver } from './services/forms-compromisso.resolver';
+import { ExcluirCompromissoComponent } from './excluir/excluir-compromisso.component';
 
 @NgModule({
   declarations: [
     ListarCompromissoComponent,
     CompromissoAppComponent,
     InserirCompromissoComponent,
+    EditarCompromissoComponent,
+    ExcluirCompromissoComponent,
   ],
   imports: [
     CommonModule,
@@ -23,6 +28,6 @@ import { ContatoModule } from '../contatos/contato.module';
     NgSelectModule,
     ContatoModule
   ],
-  providers: [CompromissoService],
+  providers: [CompromissoService, FormsCompromissoResolver],
 })
 export class CompromissoModule {}

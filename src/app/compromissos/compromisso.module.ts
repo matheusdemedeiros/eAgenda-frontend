@@ -12,6 +12,7 @@ import { ContatoModule } from '../contatos/contato.module';
 import { EditarCompromissoComponent } from './editar/editar-compromisso.component';
 import { FormsCompromissoResolver } from './services/forms-compromisso.resolver';
 import { ExcluirCompromissoComponent } from './excluir/excluir-compromisso.component';
+import { VisualizarCompromissoResolver } from './services/visualizar-compromisso.resolver';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,12 @@ import { ExcluirCompromissoComponent } from './excluir/excluir-compromisso.compo
     CompromissoRoutingModule,
     ReactiveFormsModule,
     NgSelectModule,
-    ContatoModule
+    ContatoModule,
   ],
-  providers: [CompromissoService, FormsCompromissoResolver],
+  providers: [
+    CompromissoService,
+    FormsCompromissoResolver,
+    VisualizarCompromissoResolver,
+  ],
 })
 export class CompromissoModule {}
